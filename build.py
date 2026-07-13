@@ -34,6 +34,30 @@ PROJECTS = {
 
 CAT_LABELS = {'house': '住宅', 'shop': '店舗', 'office': 'オフィス', 'landscape': 'ランドスケープ・小屋', 'furniture': '家具'}
 
+# 竣工年月（Work一覧の新しい順ソート用・content.jsonの竣工表記から抽出）
+# ※「推定」は旧サイトの並びからの仮置き。正確な年月が分かり次第差し替える
+COMPLETION = {
+ 'new-case-study-house': '2025-11',
+ 'kitakamakura': '2025-07',
+ 'kuppography-takanawa': '2025-06',
+ 'sugary-imaizumi': '2025-06',
+ 'bistro-endroll': '2025-05',      # 推定
+ 'circle-photo-studio': '2025-04', # 推定
+ 'table-room': '2023-11',
+ 'renovation-of-new-wild': '2023-09',
+ 'patisserie-minimal': '2023-09',
+ 'backyard-in-field': '2022-11',
+ 'nkhc-landscape': '2022-07',
+ 'tani-house': '2022-04',
+ 'office-in-komazawa': '2021-09',
+ 'renovation-for-green': '2021-09',
+ 'kuppography-okinawa': '2021-08',
+ 'luzesombra-hq': '2021-07',       # 推定
+ 'kuppography-komazawa': '2020-06',
+ 'rounded-dining-table': '2020-02', # 推定
+ '108': '2020-01',                  # 推定
+}
+
 # Work一覧・Selected Works・OGPのサムネイル指定（省略時は各事例の最初の画像）
 THUMBNAILS = {
  'renovation-of-new-wild': '04_adp_nezu_takuyaseki_4362_web_sRGB.jpg',
@@ -261,11 +285,13 @@ for old_key, (slug, title, cat) in PROJECTS.items():
     og = f'/assets/img/{slug}/{thumb}' if thumb else None
     with open(os.path.join(SITE, 'work', f'{slug}.html'), 'w') as f_:
         f_.write(page(f'{title} | a.d.p', body, root='../', path=f'work/{slug}.html', og_image=og))
-    work_cards.append(
+    work_cards.append((slug,
         f'<a class="card" data-cat="{cat}" href="{slug}.html"><img src="../assets/img/{slug}/{thumb}" alt="{html.escape(title)}" loading="lazy">'
-        f'<span class="cat-label">{CAT_LABELS[cat]}</span><span class="title-label">{html.escape(title)}</span></a>')
+        f'<span class="cat-label">{CAT_LABELS[cat]}</span><span class="title-label">{html.escape(title)}</span></a>'))
 
-# --- Work一覧（全件1グリッド＋カテゴリフィルタ）---
+# --- Work一覧（全件1グリッド＋カテゴリフィルタ。竣工の新しい順）---
+work_cards.sort(key=lambda x: COMPLETION.get(x[0], '0000'), reverse=True)
+work_cards = [card_html for _, card_html in work_cards]
 FILTERS = [('all', 'すべて')] + list(CAT_LABELS.items())
 filter_btns = ''.join(
     f'<button class="filter-btn{" active" if key == "all" else ""}" data-filter="{key}">{label}</button>'
