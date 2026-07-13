@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact | a.d.p</title>
+<meta name="description" content="一級建築士事務所 a.d.p ─ 建築・内装の設計・監理を全国で、首都圏では小規模施工も。横浜・東京を拠点に活動。">
+<link rel="canonical" href="https://www.adp-ad.jp/contact.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Contact | a.d.p">
+<meta property="og:description" content="一級建築士事務所 a.d.p ─ 建築・内装の設計・監理を全国で、首都圏では小規模施工も。横浜・東京を拠点に活動。">
+<meta property="og:url" content="https://www.adp-ad.jp/contact.html">
+<meta property="og:image" content="https://www.adp-ad.jp/assets/img/home/01_agave01.jpg">
+<meta property="og:site_name" content="a.d.p">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/style.css">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "ProfessionalService",
+ "name": "一級建築士事務所 a.d.p",
+ "alternateName": "株式会社a.d.p",
+ "url": "https://www.adp-ad.jp/",
+ "founder": {"@type": "Person", "name": "坂田裕貴", "jobTitle": "一級建築士"},
+ "address": {"@type": "PostalAddress", "addressRegion": "東京都", "addressLocality": "目黒区", "streetAddress": "青葉台3-18-10 401"},
+ "sameAs": ["https://www.instagram.com/anhelo_de_plantas/"],
+ "description": "建築・内装の設計・監理を全国で行う一級建築士事務所。首都圏では小規模施工も。"
+}
+</script>
+</head>
+<body>
+<header class="site-header">
+  <a class="logo" href="index.html">a.d.p</a>
+  <nav>
+    <a href="about.html">About</a>
+    <a href="work/index.html">Work</a>
+    <a href="flow.html">Flow</a>
+    <a href="recruit.html">Recruit</a>
+    <a class="cta-btn" href="contact.html">ご相談・お問い合わせ</a>
+  </nav>
+</header>
+<main>
+<h1>Contact</h1>
+<div class="prose">
+<p>設計・施工のご依頼・ご相談、取材等のお問い合わせは下記フォームよりご連絡ください。</p>
+<ul class="reassure">
+<li>初回のご相談は無料です</li>
+<li>計画が具体的でない段階のご相談も歓迎します</li>
+<li>設計・監理は全国各地に対応しています</li>
+<li>首都圏では小規模な施工もお受けしています</li>
+<li>1週間以内にメールにてご返信いたします</li>
+</ul>
+</div>
+<form class="contact-form" action="https://formspree.io/f/FORM_ID_HERE" method="POST">
+<label>お名前 <span class="req">必須</span><input type="text" name="name" required></label>
+<label>メールアドレス <span class="req">必須</span><input type="email" name="_replyto" required></label>
+<label>ご相談の種類
+<select name="type">
+<option>住宅の新築</option>
+<option>リノベーション・内装</option>
+<option>店舗・オフィス</option>
+<option>家具</option>
+<option>採用について</option>
+<option>取材・その他</option>
+</select></label>
+<label>建設予定地・物件所在地（未定でも構いません）<input type="text" name="location"></label>
+<label>ご希望の時期（未定でも構いません）<input type="text" name="timing"></label>
+<label>ご相談内容<textarea name="message" rows="6"></textarea></label>
+<p class="privacy-note">送信いただいた個人情報は<a href="privacy.html">プライバシーポリシー</a>に基づき取り扱います。</p>
+<button type="submit" class="cta-btn large">送信する</button>
+</form>
+<script>
+const form = document.querySelector('.contact-form');
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const btn = form.querySelector('button');
+  btn.disabled = true; btn.textContent = '送信中…';
+  try {
+    const res = await fetch(form.action, {method: 'POST', body: new FormData(form), headers: {'Accept': 'application/json'}});
+    if (!res.ok) throw new Error();
+    form.innerHTML = '<p class="sent">お問い合わせありがとうございました。<br>1週間以内にメールにてご返信いたします。</p>';
+  } catch {
+    btn.disabled = false; btn.textContent = '送信する';
+    alert('送信に失敗しました。お手数ですが、時間をおいて再度お試しください。');
+  }
+});
+</script>
+</main>
+<section class="cta-section">
+  <h2>建築・内装の設計のご相談を承っています</h2>
+  <p>「まだ計画が固まっていない」「土地探しの段階」でも構いません。<br>設計・監理は全国各地に対応、首都圏では小規模な施工もお受けしています。<br>まずはお気軽にご相談ください。</p>
+  <a class="cta-btn large" href="contact.html">ご相談・お問い合わせ →</a>
+</section>
+<footer class="site-footer">
+  <p>一級建築士事務所 a.d.p ｜ 株式会社a.d.p</p>
+  <p>TOKYO OFFICE：東京都目黒区青葉台3-18-10 401</p>
+  <p>一級建築士事務所 神奈川県知事登録 第18366号 ／ 建設業許可 神奈川県知事許可（般-6）第92224号</p>
+  <p><a href="https://www.instagram.com/anhelo_de_plantas/" target="_blank" rel="noopener">Instagram</a>　<a href="privacy.html">プライバシーポリシー</a></p>
+  <p class="copy">© a.d.p</p>
+</footer>
+</body>
+</html>
