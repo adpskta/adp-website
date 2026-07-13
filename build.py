@@ -303,10 +303,10 @@ for old, (slug, t, c) in list(PROJECTS.items())[:3]:
             f'<a class="card" href="work/{slug}.html"><img src="assets/img/{slug}/{thumb}" alt="{html.escape(t)}" loading="lazy"><span>{html.escape(t)}</span></a>')
 home_body = f'''<section class="hero">
 <h1>anhelo de plantas</h1>
+<p class="tagline">a.d.pは、建築と内装の設計・監理を行う一級建築士事務所です。</p>
 {hero_img}
 </section>
 <section class="philosophy">
-<p class="position">a.d.pは、建築と内装の設計・監理を行う一級建築士事務所です。</p>
 {paragraphs(home_texts)}
 {f'<div class="signature"><img src="{portrait_sq}" alt="代表 坂田裕貴" loading="lazy"><span>代表・一級建築士<br>坂田 裕貴</span></div>' if portrait_sq else ''}</section>
 <section class="featured">
