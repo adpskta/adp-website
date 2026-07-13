@@ -96,8 +96,9 @@ _HP/
 - [x] OGP・JSON-LD・sitemap.xml・robots.txt・favicon 済
 - [x] プライバシーポリシー＋フォームAJAX送信（インライン完了表示）済
 - [x] Formspree稼働（Form ID mrenggya・送信先 info@adp-ad.jp）2026-07-13
-- [ ] 坂田さん: Cloudflare無料登録 → Pages にデプロイ（Cloudflare Web Analytics も設定）
-- [ ] お名前.com DNS確認（MX含む）→ 切替 → 旧URLリダイレクト確認 → Squarespace解約
+- [x] 本番公開完了 2026-07-13: GitHub Pages＋独自ドメイン（HTTPS強制済・MX無傷・フォームテスト受信確認済）
+- [ ] 坂田さん: **Squarespace解約**（account.squarespace.com → Billing → Cancel。期間末8/16までサービス継続を確認して確定）
+- [ ] 坂田さん: Google Search Consoleで再クロール要求（検索結果の説明文が旧サイトのまま。DNSにgoogle-site-verification TXTあり→ドメインプロパティで入れる。URL検査→インデックス登録リクエスト＋sitemap.xml送信）
 - [ ] （公開後）Googleビジネスプロフィール登録
 
 ## 経緯メモ
