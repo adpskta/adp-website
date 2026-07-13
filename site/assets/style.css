@@ -166,9 +166,16 @@ dl.faq dd { margin: 6px 0 0; color: #333; }
 .site-footer a { border-bottom: 1px solid var(--gray); }
 .copy { margin-top: 16px; }
 
+/* ヘッダーCTA: PCはテキストボタン・モバイルは封筒アイコンのみ */
+.site-header .cta-btn .mail-icon { display: none; }
+
 @media (max-width: 640px) {
   .site-header { padding: 20px 16px; }
   .site-header nav { gap: 16px; }
+  .site-header .cta-btn { background: none; color: var(--black) !important; padding: 0; border-radius: 0; }
+  .site-header .cta-btn:hover { opacity: .5; }
+  .site-header .cta-btn .cta-text { display: none; }
+  .site-header .cta-btn .mail-icon { display: block; }
   main { padding: 0 16px; }
   .hero { padding: 40px 0 24px; }
 }

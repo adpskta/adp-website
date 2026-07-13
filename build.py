@@ -82,7 +82,7 @@ NAV = '''<header class="site-header">
     <a href="{root}work/index.html">Work</a>
     <a href="{root}flow.html">Flow</a>
     <a href="{root}recruit.html">Recruit</a>
-    <a class="cta-btn" href="{root}contact.html">ご相談・お問い合わせ</a>
+    <a class="cta-btn" href="{root}contact.html" aria-label="ご相談・お問い合わせ"><svg class="mail-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4.5" width="19" height="15" rx="1.5"/><path d="M3 6.5l9 7 9-7"/></svg><span class="cta-text">ご相談・お問い合わせ</span></a>
   </nav>
 </header>'''
 
