@@ -474,4 +474,8 @@ with open(os.path.join(SITE, 'sitemap.xml'), 'w') as f_:
 with open(os.path.join(SITE, 'robots.txt'), 'w') as f_:
     f_.write(f'User-agent: *\nAllow: /\nSitemap: {BASE_URL}/sitemap.xml\n')
 
+# GitHub Pages 独自ドメイン（CNAMEファイル）。BASE_URLのホスト部から生成
+with open(os.path.join(SITE, 'CNAME'), 'w') as f_:
+    f_.write(BASE_URL.split('//', 1)[1] + '\n')
+
 print('build complete:', SITE)
