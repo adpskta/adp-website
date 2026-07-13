@@ -35,13 +35,24 @@ _HP/
 └── _old_2022_企画資料/ ← 旧サイト企画時の資料（アーカイブ）
 ```
 
+## 公開・ホスティング（2026-07-13 本番移行）
+
+- **本番URL: https://www.adp-ad.jp**（GitHub Pagesでホスティング・無料）
+- **GitHubリポジトリ: https://github.com/adpskta/adp-website**（public・アカウント @adpskta）
+- **デプロイ方法: `git push origin main` で自動公開**（.github/workflows/deploy.yml が site/ をPagesへ）
+- 独自ドメイン: build.py が site/CNAME（www.adp-ad.jp）を生成。DNSはお名前.comで管理
+  - Aレコード @ → 185.199.108〜111.153（GitHub Pages）／ www CNAME → adpskta.github.io
+  - MX（Google）・TXT は移行時も維持（メール受信は影響なし）
+- ⚠️ push認証: このセッションでは gh CLI をscratchpadに置いて `git config credential.helper '!gh auth git-credential'` で通した。**別マシン/新環境でpushするには gh CLI のインストールと `gh auth login` が必要**
+
 ## 作業ルール
 
 1. **site/ を直接編集しない**。文言・構成の変更はすべて `build.py` を編集 → `python3 build.py` で再生成
-2. **コンテンツの変更をしたら git commit する**（このリポジトリはgit管理。コミットメッセージは日本語でOK）
+2. **変更したら commit → `git push origin main` で本番反映**（1〜2分でGitHub Actionsがデプロイ）
 3. プレビュー: `python3 -m http.server 8765 --directory site/` → http://localhost:8765（スマホ実機は http://<MacのIP>:8765）
 4. 事例の追加: `00_inbox/README.md` の手順どおり（フォルダ＋写真＋メモ.txt → 文章化して build.py の PROJECTS に追加）
 5. 公開前に坂田さんの文言確認を必ず挟む
+6. 旧Squarespace回収データ（01_migration/）と社内資料（_old_2022_企画資料/）は .gitignore でGitHub非公開。旧git履歴はローカルの archive/local-history ブランチに保全
 
 ## サイト構成（2026-07-07時点）
 
