@@ -41,21 +41,22 @@ COMPLETION = {
  'kitakamakura': '2025-07',
  'kuppography-takanawa': '2025-06',
  'sugary-imaizumi': '2025-06',
- 'bistro-endroll': '2025-05',      # 推定
- 'circle-photo-studio': '2025-04', # 推定
+ 'luzesombra-hq': '2022-08',
  'table-room': '2023-11',
  'renovation-of-new-wild': '2023-09',
  'patisserie-minimal': '2023-09',
  'backyard-in-field': '2022-11',
  'nkhc-landscape': '2022-07',
  'tani-house': '2022-04',
+ 'circle-photo-studio': '2021-11',
  'office-in-komazawa': '2021-09',
  'renovation-for-green': '2021-09',
  'kuppography-okinawa': '2021-08',
- 'luzesombra-hq': '2021-07',       # 推定
  'kuppography-komazawa': '2020-06',
- 'rounded-dining-table': '2020-02', # 推定
- '108': '2020-01',                  # 推定
+ 'bistro-endroll': '2013-06',
+ # 家具は最後に固定
+ 'rounded-dining-table': '0000-02',
+ '108': '0000-01',
 }
 
 # Work一覧・Selected Works・OGPのサムネイル指定（省略時は各事例の最初の画像）
