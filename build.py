@@ -102,6 +102,20 @@ FOOTER = '''<section class="cta-section">
 BASE_URL = 'https://www.adp-ad.jp'
 OG_DEFAULT = ['/']  # buildの序盤でヒーロー画像パスに差し替える
 
+# Google Analytics 4 測定ID（空文字なら計測タグを出力しない）
+GA_MEASUREMENT_ID = ''
+
+def ga_snippet():
+    if not GA_MEASUREMENT_ID:
+        return ''
+    return f'''<script async src="https://www.googletagmanager.com/gtag/js?id={GA_MEASUREMENT_ID}"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){{dataLayer.push(arguments);}}
+gtag('js', new Date());
+gtag('config', '{GA_MEASUREMENT_ID}');
+</script>'''
+
 JSONLD = '''<script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -137,6 +151,7 @@ def page(title, body, root='', desc='一級建築士事務所 a.d.p ─ 建築�
 <link rel="icon" href="{root}assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="{root}assets/style.css">
 {JSONLD}
+{ga_snippet()}
 </head>
 <body>
 {NAV.format(root=root)}
