@@ -52,7 +52,7 @@ _HP/
 - About: ポジショニング1行＋経歴年表＋ポートレート＋メンバー4名（高橋万里江・安部くるみ・近森麦人・田部堅大）＋事務所概要表＋掲載メディア（哲学文なし）
 - Flow: 依頼の流れ8ステップ＋FAQ（費用・期間セクションは意図的に未掲載↓）
 - Recruit: 機嫌よく働くことにさらっと触れる控えめな文章＋募集要項（2026-07-06に「ご機嫌」の強い打ち出しをトーンダウン・坂田さん指示）
-- Contact: Formspreeフォーム（**FORM_ID_HERE のまま＝未稼働。Formspree登録待ち**）
+- Contact: Formspreeフォーム稼働中（Form ID: mrenggya・送信先 info@adp-ad.jp・2026-07-13設定）
 
 ## 営業戦略（2026-07-07 坂田さん）
 
@@ -84,7 +84,7 @@ _HP/
 - [x] 画像最適化（optimize_images.py・長辺1600px JPEG82。素材追加時は build 前に実行）済
 - [x] OGP・JSON-LD・sitemap.xml・robots.txt・favicon 済
 - [x] プライバシーポリシー＋フォームAJAX送信（インライン完了表示）済
-- [ ] 坂田さん: Formspree無料登録 → build.py の FORM_ID_HERE を差し替え
+- [x] Formspree稼働（Form ID mrenggya・送信先 info@adp-ad.jp）2026-07-13
 - [ ] 坂田さん: Cloudflare無料登録 → Pages にデプロイ（Cloudflare Web Analytics も設定）
 - [ ] お名前.com DNS確認（MX含む）→ 切替 → 旧URLリダイレクト確認 → Squarespace解約
 - [ ] （公開後）Googleビジネスプロフィール登録
