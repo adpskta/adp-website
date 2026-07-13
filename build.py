@@ -280,7 +280,7 @@ home_texts = [t for t in content.get('home', {}).get('texts', [])
 home_files = copy_images('home', 'home')
 hero_img = f'<img class="hero-img" src="assets/img/home/{home_files[0]}" alt="anhelo de plantas">' if home_files else ''
 featured_cards = []
-for old, (slug, t, c) in list(PROJECTS.items())[:6]:
+for old, (slug, t, c) in list(PROJECTS.items())[:3]:
     fs = copy_images(old, slug)
     if fs:
         thumb = THUMBNAILS.get(slug) or fs[0]
