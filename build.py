@@ -34,8 +34,9 @@ PROJECTS = {
 
 CAT_LABELS = {'house': '住宅', 'shop': '店舗', 'office': 'オフィス', 'landscape': 'ランドスケープ・小屋', 'furniture': '家具'}
 
-# 竣工年月（Work一覧の新しい順ソート用・content.jsonの竣工表記から抽出）
-# ※「推定」は旧サイトの並びからの仮置き。正確な年月が分かり次第差し替える
+# 竣工年月（Work一覧の新しい順ソート用）。全件2026-07-14に坂田さん確認で確定。
+# bistro-endroll(2013-06)はHandiHouse project時代の実績のため最下部（家具の直前）。
+# 家具2件は日付に関わらず末尾固定（0000-）。新規事例はここに1行足せば自動で新しい順に並ぶ。
 COMPLETION = {
  'new-case-study-house': '2025-11',
  'kitakamakura': '2025-07',
