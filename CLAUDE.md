@@ -50,7 +50,11 @@ _HP/
 1. **site/ を直接編集しない**。文言・構成の変更はすべて `build.py` を編集 → `python3 build.py` で再生成
 2. **変更したら commit → `git push origin main` で本番反映**（1〜2分でGitHub Actionsがデプロイ）
 3. プレビュー: `python3 -m http.server 8765 --directory site/` → http://localhost:8765（スマホ実機は http://<MacのIP>:8765）
-4. 事例の追加: `00_inbox/README.md` の手順どおり（フォルダ＋写真＋メモ.txt → 文章化して build.py の PROJECTS に追加）
+4. 事例の追加: `00_inbox/README.md` の手順どおり。実装は次の4点セット
+   - 写真を長辺1600px/JPEG82に最適化して `assets_src/work/<slug>/` へ（copy_imagesがここを最優先で見る）
+   - `PROJECTS` に末尾追加（キーは `new__<slug>`。※先頭3件がトップのSelected Worksになるので末尾が安全）
+   - 本文・クレジットは `NEW_TEXTS[slug]` に空行区切りで記述（content.jsonに無いため）
+   - `COMPLETION[slug]` に竣工年月（Work一覧はこれで新しい順ソート）
 5. 公開前に坂田さんの文言確認を必ず挟む
 6. 旧Squarespace回収データ（01_migration/）と社内資料（_old_2022_企画資料/）は .gitignore でGitHub非公開。旧git履歴はローカルの archive/local-history ブランチに保全
 

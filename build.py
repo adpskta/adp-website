@@ -30,6 +30,37 @@ PROJECTS = {
  'work__death-by-xoko-ea6gh': ('office-in-komazawa', '駒沢のオフィス', 'office'),
  'portfolio-1__project-two-ky966-fkmxk-hey92': ('rounded-dining-table', 'Rounded Dining Table', 'furniture'),
  'portfolio-1__project-two-ky966-fkmxk': ('108', '108', 'furniture'),
+ # 以降は新規事例（content.jsonに無いものは NEW_TEXTS に本文を書く）
+ 'new__sugary-hankyu': ('sugary-hankyu', 'Sugary 阪急三番街', 'shop'),
+}
+
+# content.jsonに無い新規事例の本文（段落は空行区切り。クレジットも段落として続ける）
+NEW_TEXTS = {
+ 'sugary-hankyu': '''阪急三番街のバスターミナルに近接し、行き交う人の流れが絶えない立地に計画した小さな店舗。通過動線の中でアサイーを気軽に手に取り、日常の一部として持ち帰ることを主としたテイクアウト中心のスタンド型店舗とした。
+
+空間の核には、全周に耳を残した欅の無垢材による一枚板のハイテーブルを据えている。自然が生み出した不均質な輪郭や力強い表情は、スーパーフードであるアサイーが持つ自然由来のエネルギーと重なり合う存在として採用した。加工されすぎない素材そのものの形や表情で、食の背景にある自然の力が伝わることを期待している。
+
+テーブルの周囲に人が集う様子は、実を求めて枝先に集まる鳥の姿を思わせる。アサイーを求めて立ち寄る人々が一時的に集まり、またそれぞれの行き先へと散っていく。その一方で、店内で飲食を楽しまれる際には、自然と人がテーブルを囲み、短い時間ながらも場が生まれる構成とした。
+
+「アサイーのスタンド」と「植物の魅力に引き寄せられる人」という二つの要素で空間を構成している。自然物が持つ形や力に惹かれ、人が集い、また流れていく。その繰り返しが、この場所に軽やかな滞留とリズムを生み出し、都市の動線の中にSUGARYらしい風景をつくり出し、それそのものが店舗のファサードとなる計画とした。
+
+設計・監理：a.d.p（坂田裕貴、安部くるみ）　協力：タムテ 柳館
+
+施工：ヤシマ工業
+
+天板：torinoki furniture
+
+所在地：大阪府
+
+用途：店舗（改修）
+
+構造：鉄骨造
+
+延床面積：26.1m²
+
+竣工：2025年8月
+
+写真：circle photo studio''',
 }
 
 CAT_LABELS = {'house': '住宅', 'shop': '店舗', 'office': 'オフィス', 'landscape': 'ランドスケープ・小屋', 'furniture': '家具'}
@@ -39,6 +70,7 @@ CAT_LABELS = {'house': '住宅', 'shop': '店舗', 'office': 'オフィス', 'la
 # 家具2件は日付に関わらず末尾固定（0000-）。新規事例はここに1行足せば自動で新しい順に並ぶ。
 COMPLETION = {
  'new-case-study-house': '2025-11',
+ 'sugary-hankyu': '2025-08',
  'kitakamakura': '2025-07',
  'kuppography-takanawa': '2025-06',
  'sugary-imaizumi': '2025-06',
@@ -215,7 +247,10 @@ def build_portrait():
     return 'assets/img/profile/portrait.jpg', 'assets/img/profile/portrait_sq.jpg'
 
 def copy_images(old_key, new_key):
-    srcdir = os.path.join(MIG, 'images_web', old_key)
+    # 新規事例は assets_src/work/<slug>/ が優先（00_inboxから最適化して配置）
+    srcdir = os.path.join(BASE, 'assets_src', 'work', new_key)
+    if not os.path.isdir(srcdir):
+        srcdir = os.path.join(MIG, 'images_web', old_key)
     if not os.path.isdir(srcdir):
         srcdir = os.path.join(MIG, 'images', old_key)
     dstdir = os.path.join(SITE, 'assets', 'img', new_key)
@@ -271,7 +306,7 @@ portrait_wide, portrait_sq = build_portrait()
 work_cards = []
 for old_key, (slug, title, cat) in PROJECTS.items():
     files = copy_images(old_key, slug)
-    texts = content.get(old_key, {}).get('texts', [])
+    texts = [NEW_TEXTS[slug]] if slug in NEW_TEXTS else content.get(old_key, {}).get('texts', [])
     gallery = '\n'.join(
         f'<figure><img src="../assets/img/{slug}/{f}" alt="{html.escape(title)}" loading="lazy"></figure>'
         for f in files)
