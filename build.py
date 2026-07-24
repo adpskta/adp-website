@@ -32,6 +32,7 @@ PROJECTS = {
  'portfolio-1__project-two-ky966-fkmxk': ('108', '108', 'furniture'),
  # 以降は新規事例（content.jsonに無いものは NEW_TEXTS に本文を書く）
  'new__sugary-hankyu': ('sugary-hankyu', 'Sugary 阪急三番街', 'shop'),
+ 'new__bus-stop-nagaya': ('bus-stop-nagaya', 'バス停前の長屋', 'house'),
 }
 
 # content.jsonに無い新規事例の本文（段落は空行区切り。クレジットも段落として続ける）
@@ -61,6 +62,29 @@ NEW_TEXTS = {
 竣工：2025年8月
 
 写真：circle photo studio''',
+
+ # ⚠️ 本文は坂田さんのメモを整形した暫定版（2026-07-24）。正式テキスト作成後に差し替える
+ 'bus-stop-nagaya': '''オーナー家族の住戸と賃貸3世帯からなる、木造3階建ての長屋です。
+
+ボリュームが大きくなりがちな3階建てにおいて、街に対する余白と、賃貸とオーナー住戸を等しく見せることを主題に設計しました。長さの異なる3つの勾配屋根と、縦方向にも広がるアプローチ空間により、住まい手の生活が街と緩やかに関係する住まいを目指しています。
+
+店舗の少ない住宅地にあって、マルシェのような催しを開ける場となり、そうした気持ちを持つ人が集まることで、街に少しでも賑やかさが生まれてほしい。そんな施主の思いが計画の出発点にあります。
+
+設計・監理：a.d.p 坂田裕貴 ＋ WAO 若杉賢一 ＋ &K architects 金田未来
+
+施工：施主による自主施工
+
+所在地：東京都
+
+用途：長屋（新築）
+
+構造：木造3階建て
+
+延床面積：284.24m²
+
+竣工：2025年12月
+
+写真：satography''',
 }
 
 CAT_LABELS = {'house': '住宅', 'shop': '店舗', 'office': 'オフィス', 'landscape': 'ランドスケープ・小屋', 'furniture': '家具'}
@@ -69,6 +93,7 @@ CAT_LABELS = {'house': '住宅', 'shop': '店舗', 'office': 'オフィス', 'la
 # bistro-endroll(2013-06)はHandiHouse project時代の実績のため最下部（家具の直前）。
 # 家具2件は日付に関わらず末尾固定（0000-）。新規事例はここに1行足せば自動で新しい順に並ぶ。
 COMPLETION = {
+ 'bus-stop-nagaya': '2025-12',
  'new-case-study-house': '2025-11',
  'sugary-hankyu': '2025-08',
  'kitakamakura': '2025-07',

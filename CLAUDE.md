@@ -89,6 +89,7 @@ _HP/
 - [x] 顔写真をAbout（横長）＋トップ哲学文の署名（丸アイコン）に組み込み 済 2026-07-06
   - 原本: assets_src/profile/portrait.jpg（00_inbox/profile/004.jpg 由来）。build.py の build_portrait() がWeb用2種を自動生成
 - [ ] 坂田さん: 代表事例3〜5件のストーリーメモ → ケーススタディ化（施主の声も可能なら）
+- [ ] **バス停前の長屋の本文差し替え**：現在はメモを整形した暫定版（2026-07-24公開）。坂田さんが正式な説明テキストを作成予定 → NEW_TEXTS['bus-stop-nagaya'] を差し替える
 - [x] 事例タイトルの日本語化（方針=日本語主＋英語サブタイトル併記・店名等の固有名詞はそのまま）済 2026-07-07
   - 生前からある都市に住む／北鎌倉の増築／世田谷 谷の家／Sugary 今泉／畑のBackyard／緑のためのリノベーション（旧Incity cottage表記は坂田さん指示で整理）／クッポグラフィー 高輪ゲートウェイスタジオ・駒沢公園スタジオ・沖縄スタジオ
   - 英語のまま: bistro endroll・circle photo studio・Patisserie Minimal・LUZeSOMBRA HQ・NKHC・New Case Study House・Table Room・家具2件（＋駒沢のオフィスに改名済みのOffice in Komazawaは除く）
