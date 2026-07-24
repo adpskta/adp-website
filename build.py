@@ -95,7 +95,11 @@ COMPLETION = {
 # Work一覧・Selected Works・OGPのサムネイル指定（省略時は各事例の最初の画像）
 THUMBNAILS = {
  'renovation-of-new-wild': '04_adp_nezu_takuyaseki_4362_web_sRGB.jpg',
+ 'kuppography-komazawa': '03_02_interior_ume.jpg',
 }
+
+# トップのSelected Works（3件・表示順）。ここを書き換えるだけで差し替えられる
+FEATURED = ['renovation-of-new-wild', 'kitakamakura', 'kuppography-komazawa']
 
 # 日本語タイトルの作品に併記する英語タイトル
 SUBTITLES = {
@@ -358,7 +362,9 @@ home_texts = [t for t in content.get('home', {}).get('texts', [])
 home_files = copy_images('home', 'home')
 hero_img = f'<img class="hero-img" src="assets/img/home/{home_files[0]}" alt="anhelo de plantas">' if home_files else ''
 featured_cards = []
-for old, (slug, t, c) in list(PROJECTS.items())[:3]:
+_by_slug = {slug: (old, t, c) for old, (slug, t, c) in PROJECTS.items()}
+for slug in FEATURED:
+    old, t, c = _by_slug[slug]
     fs = copy_images(old, slug)
     if fs:
         thumb = THUMBNAILS.get(slug) or fs[0]
