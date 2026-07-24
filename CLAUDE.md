@@ -95,7 +95,8 @@ _HP/
   - 英語のまま: bistro endroll・circle photo studio・Patisserie Minimal・LUZeSOMBRA HQ・NKHC・New Case Study House・Table Room・家具2件（＋駒沢のオフィスに改名済みのOffice in Komazawaは除く）
   - 高輪ゲートウェイスタジオの命名も坂田さん承認済み（2026-07-07）
 - [x] Office in Komazawa →「駒沢のオフィス」／Table Room→現状維持（固有名詞扱い・坂田さん決定 2026-07-07）
-- [ ] 日本語タイトル未定の残り候補: New Case Study House（三浦郡の住宅）→ 坂田さんの命名待ち
+- [x] New Case Study House →「ニューケーススタディハウス」（英語サブタイトル併記）2026-07-24
+- [ ] **本文が未執筆の事例5件**（旧サイトの "Text content coming soon." を非表示にしただけで、現在クレジットのみ表示）: 北鎌倉の増築／クッポグラフィー高輪ゲートウェイ／bistro endroll／circle photo studio／ニューケーススタディハウス → 坂田さんの本文待ち（00_inboxに `既存_事例名.txt` でメモを置けば文章化します）
 - [x] トップにポジショニング1行（哲学文の手前）済 2026-07-06
 - [x] 画像最適化（optimize_images.py・長辺1600px JPEG82。素材追加時は build 前に実行）済
 - [x] OGP・JSON-LD・sitemap.xml・robots.txt・favicon 済

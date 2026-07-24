@@ -16,7 +16,7 @@ PROJECTS = {
  'work__american-portraiture-gr4x2-2rjwf-hn878-ery2x-yy6t6-7xs76-h8aws-8r8ab': ('kuppography-takanawa', 'クッポグラフィー 高輪ゲートウェイスタジオ', 'shop'),
  'work__american-portraiture-gr4x2-2rjwf-hn878-ery2x-yy6t6-7xs76-h8aws-a46n9-smr6z-azsrb-bklp4-rh9l8-jzsnr-felet-h3mrx-bz5zg-fbnl4-6fgf9': ('bistro-endroll', 'bistro endroll', 'shop'),
  'work__american-portraiture-gr4x2-2rjwf-hn878-ery2x-yy6t6-7xs76-h8aws-a46n9': ('circle-photo-studio', 'circle photo studio', 'shop'),
- 'work__american-portraiture-gr4x2-2rjwf-hn878-ery2x-yy6t6-7xs76-h8aws-zttrs': ('new-case-study-house', 'New Case Study House', 'house'),
+ 'work__american-portraiture-gr4x2-2rjwf-hn878-ery2x-yy6t6-7xs76-h8aws-zttrs': ('new-case-study-house', 'ニューケーススタディハウス', 'house'),
  'work__american-portraiture-gr4x2-2rjwf-hn878-ery2x-yy6t6-7xs76-h8aws': ('sugary-imaizumi', 'Sugary 今泉', 'shop'),
  'work__american-portraiture-gr4x2-2rjwf-hn878-ery2x-yy6t6-7xs76': ('table-room', 'Table Room', 'office'),
  'work__american-portraiture-gr4x2-2rjwf-hn878-ery2x': ('patisserie-minimal', 'Patisserie Minimal', 'shop'),
@@ -137,6 +137,7 @@ SUBTITLES = {
  'backyard-in-field': 'Backyard in Field',
  'renovation-for-green': 'Renovation for Green',
  'office-in-komazawa': 'Office in Komazawa',
+ 'new-case-study-house': 'New Case Study House',
 }
 
 # 本文先頭に残っている旧タイトル行を落とすための接頭辞（h1と重複するため）
@@ -151,6 +152,7 @@ OLD_TITLE_LINES = {
  'office-in-komazawa': ('Office in Komazawa',),
  'patisserie-minimal': ('Patisserie Minimal Soshigaya-Okura',),
  'luzesombra-hq': ('LUZeSOMBRA HeadQuarters',),
+ 'new-case-study-house': ('New Case Study House',),
 }
 
 # 事例ページへの追記ブロック（施主の声・掲載記事など。本文と写真の間に入る）
@@ -292,7 +294,10 @@ def copy_images(old_key, new_key):
             files.append(f)
     return files
 
-SKIP_PARAS = {'anhelo de plantas', 'Made with Squarespace'}
+SKIP_PARAS = {'anhelo de plantas', 'Made with Squarespace',
+              # 旧サイトの英語プレースホルダー（施主向けに意味がないので非表示）
+              'Text content coming soon.',
+              'Text coming soon. Construction photos until final photos are ready.'}
 REPLACE_TEXT = {
     '目黒区青葉台3-18-10 CASA青葉台 401': '東京都目黒区青葉台3-18-10 401',
     'TOKYO OFFICE  :': 'TOKYO OFFICE :',
