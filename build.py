@@ -129,7 +129,7 @@ FEATURED = ['renovation-of-new-wild', 'kitakamakura', 'kuppography-komazawa']
 # 日本語タイトルの作品に併記する英語タイトル
 SUBTITLES = {
  'renovation-of-new-wild': 'Renovation of new wild',
- 'tani-house': 'Tani House in Setagaya',
+ 'tani-house': 'Tani House',
  'sugary-imaizumi': 'Sugary Imaizumi',
  'kuppography-takanawa': 'Kuppography Takanawa Gateway',
  'kuppography-komazawa': 'Kuppography Komazawa',
