@@ -23,7 +23,7 @@ PROJECTS = {
  'work__american-portraiture-gr4x2-2rjwf-hn878': ('backyard-in-field', '畑のBackyard', 'landscape'),
  'work__american-portraiture-gr4x2-2rjwf': ('renovation-for-green', '緑のためのリノベーション', 'house'),
  'work__american-portraiture-gr4x2': ('nkhc-landscape', 'NKHC Landscape Design 2022~', 'landscape'),
- 'work__chotto-motto-5sdaj': ('tani-house', '世田谷 谷の家', 'house'),
+ 'work__chotto-motto-5sdaj': ('tani-house', '谷の家', 'house'),
  'work__death-by-xoko-ea6gh-3daf4-gceab': ('kuppography-komazawa', 'クッポグラフィー 駒沢公園スタジオ', 'shop'),
  'work__death-by-xoko-ea6gh-3daf4': ('kuppography-okinawa', 'クッポグラフィー 沖縄スタジオ', 'shop'),
  'work__death-by-xoko-ea6gh-8bnb4': ('luzesombra-hq', 'LUZeSOMBRA HQ', 'shop'),
@@ -143,7 +143,7 @@ SUBTITLES = {
 # 本文先頭に残っている旧タイトル行を落とすための接頭辞（h1と重複するため）
 OLD_TITLE_LINES = {
  'renovation-of-new-wild': ('Renovation of new wild',),
- 'tani-house': ('Tani House in Setagaya',),
+ 'tani-house': ('Tani House in Setagaya', '世田谷 谷の家'),
  'sugary-imaizumi': ('Sugary 今泉店',),
  'kuppography-takanawa': ('Kuppography Takanawa Gateway',),
  'kuppography-komazawa': ('Kuppography Komazawa', 'クッポグラフィー'),
