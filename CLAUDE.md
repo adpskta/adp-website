@@ -43,7 +43,7 @@ _HP/
 - 独自ドメイン: build.py が site/CNAME（www.adp-ad.jp）を生成。DNSはお名前.comで管理
   - Aレコード @ → 185.199.108〜111.153（GitHub Pages）／ www CNAME → adpskta.github.io
   - MX（Google）・TXT は移行時も維持（メール受信は影響なし）
-- ⚠️ push認証: このセッションでは gh CLI をscratchpadに置いて `git config credential.helper '!gh auth git-credential'` で通した。**別マシン/新環境でpushするには gh CLI のインストールと `gh auth login` が必要**
+- push認証: gh CLI を `~/.local/bin/gh` に常設し、`credential.helper` に登録済み（2026-08-05恒久化）。**このMacでは追加設定なしでpushできる**。別マシンでは gh のインストールと `gh auth login` が必要
 
 ## 作業ルール
 
