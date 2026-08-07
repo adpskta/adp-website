@@ -104,7 +104,7 @@ _HP/
 - [x] Formspree稼働（Form ID mrenggya・送信先 info@adp-ad.jp）2026-07-13
 - [x] 本番公開完了 2026-07-13: GitHub Pages＋独自ドメイン（HTTPS強制済・MX無傷・フォームテスト受信確認済）
 - [x] Squarespace解約完了 2026-07-13（8/16に自動終了・以降課金なし。**Resubscribeボタンは押さない**。誤複製した「a.d.p (Copy)」トライアルは7/27に自動失効するので放置）
-- [ ] GA4導入: build.py の GA_MEASUREMENT_ID に測定IDを設定（組み込み口は実装済み・坂田さんのID取得待ち）
+- [x] GA4導入済み 2026-08-07（測定ID: G-GV2X6LVGXT・全28ページに設置・プライバシーポリシーにオプトアウト案内も追記）
 - [ ] 坂田さん: Google Search Consoleで再クロール要求（検索結果の説明文が旧サイトのまま。DNSにgoogle-site-verification TXTあり→ドメインプロパティで入れる。URL検査→インデックス登録リクエスト＋sitemap.xml送信）
 - [ ] （公開後）Googleビジネスプロフィール登録
 

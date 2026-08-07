@@ -192,7 +192,7 @@ BASE_URL = 'https://www.adp-ad.jp'
 OG_DEFAULT = ['/']  # buildの序盤でヒーロー画像パスに差し替える
 
 # Google Analytics 4 測定ID（空文字なら計測タグを出力しない）
-GA_MEASUREMENT_ID = ''
+GA_MEASUREMENT_ID = 'G-GV2X6LVGXT'
 
 def ga_snippet():
     if not GA_MEASUREMENT_ID:
@@ -568,7 +568,7 @@ privacy_body = '''<h1>プライバシーポリシー</h1>
 <h2>第三者への提供</h2>
 <p>法令に基づく場合を除き、ご本人の同意なく第三者に個人情報を提供することはありません。</p>
 <h2>アクセス解析</h2>
-<p>当サイトでは、サイト改善のためにアクセス解析ツールを利用する場合があります。解析データは匿名で収集され、個人を特定するものではありません。</p>
+<p>当サイトでは、サイト改善のためにGoogleアナリティクスを利用しています。Cookieを用いてアクセス状況を収集していますが、データは匿名で収集され、個人を特定するものではありません。収集の停止をご希望の場合は、<a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">Googleアナリティクス オプトアウト アドオン</a>をご利用ください。</p>
 <h2>開示・訂正・削除</h2>
 <p>ご自身の個人情報について開示・訂正・削除をご希望の場合は、お問い合わせフォームよりご連絡ください。すみやかに対応いたします。</p>
 <p class="policy-date">制定日：2026年7月</p>
