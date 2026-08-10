@@ -588,6 +588,39 @@ with open(os.path.join(SITE, 'sitemap.xml'), 'w') as f_:
 with open(os.path.join(SITE, 'robots.txt'), 'w') as f_:
     f_.write(f'User-agent: *\nAllow: /\nSitemap: {BASE_URL}/sitemap.xml\n')
 
+# --- 旧SquarespaceのURLからのリダイレクト ---
+# 移行でURL構造が変わり旧URLが404になっていた（2026-08-07にSearch Consoleで検出）。
+# GitHub Pagesはサーバー側リダイレクトができないため、旧URLの位置に
+# canonical＋meta refresh のページを置いて転送する（Googleは転送として評価を引き継ぐ）。
+# 旧URLは PROJECTS のキーから導出できる（work__foo → /work/foo）。
+REDIRECTS = {}
+for old_key, (slug, _t, _c) in PROJECTS.items():
+    if old_key.startswith('new__'):   # 移行後に追加した事例は旧URLを持たない
+        continue
+    REDIRECTS['/' + old_key.replace('__', '/')] = f'/work/{slug}.html'
+REDIRECTS['/portfolio-1'] = '/work/index.html'   # 旧・家具コレクションの一覧
+
+def write_redirect(old_path, new_path):
+    dst = os.path.join(SITE, old_path.lstrip('/') + '.html')
+    os.makedirs(os.path.dirname(dst), exist_ok=True)
+    with open(dst, 'w') as f_:
+        f_.write(f'''<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>ページが移動しました | a.d.p</title>
+<link rel="canonical" href="{BASE_URL}{new_path}">
+<meta http-equiv="refresh" content="0; url={new_path}">
+</head>
+<body>
+<p>このページは移動しました。自動で切り替わらない場合は <a href="{new_path}">こちら</a> をご覧ください。</p>
+</body>
+</html>''')
+
+for _old, _new in REDIRECTS.items():
+    write_redirect(_old, _new)
+print(f'redirects: {len(REDIRECTS)}件')
+
 # GitHub Pages 独自ドメイン（CNAMEファイル）。BASE_URLのホスト部から生成
 with open(os.path.join(SITE, 'CNAME'), 'w') as f_:
     f_.write(BASE_URL.split('//', 1)[1] + '\n')
