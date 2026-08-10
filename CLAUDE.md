@@ -57,6 +57,7 @@ _HP/
    - `COMPLETION[slug]` に竣工年月（Work一覧はこれで新しい順ソート）
 5. 公開前に坂田さんの文言確認を必ず挟む
 6. 旧Squarespace回収データ（01_migration/）と社内資料（_old_2022_企画資料/）は .gitignore でGitHub非公開。旧git履歴はローカルの archive/local-history ブランチに保全
+7. **旧URLリダイレクト**: build.py が PROJECTS のキーから旧SquarespaceのURL（`work__foo` → `/work/foo`）を導出し、canonical＋meta refresh の転送ページを自動生成する（20件）。事例のslugを変えたら転送先も自動追従するので手動管理は不要
 
 ## サイト構成（2026-07-07時点）
 
@@ -105,6 +106,7 @@ _HP/
 - [x] 本番公開完了 2026-07-13: GitHub Pages＋独自ドメイン（HTTPS強制済・MX無傷・フォームテスト受信確認済）
 - [x] Squarespace解約完了 2026-07-13（8/16に自動終了・以降課金なし。**Resubscribeボタンは押さない**。誤複製した「a.d.p (Copy)」トライアルは7/27に自動失効するので放置）
 - [x] GA4導入済み 2026-08-07（測定ID: G-GV2X6LVGXT・全28ページに設置・プライバシーポリシーにオプトアウト案内も追記）
+- [x] 旧URL404問題を修正 2026-08-07（移行時の積み残し。旧Squarespace URL 20件が404だった → 転送ページを自動生成。外部リンクとSEO評価を新URLへ引き継ぎ）
 - [x] Search Console設定完了 2026-08-07（ドメインプロパティ `sc-domain:adp-ad.jp`・DNS TXT認証・sitemap.xml送信済み28ページ検出・トップのインデックス登録リクエスト済み）
   - ⚠️ 認証用TXT `google-site-verification=2igKFgUXG4zfp8BS_qPacH1OVvYGTa0jsQzdTTqCh0Q` は**削除禁止**（消すと所有権が外れる）
   - ドメインプロパティなのでサイトマップ送信時は**フルURL**が必要（`sitemap.xml` だけでは不可）
