@@ -7,3 +7,11 @@ __pycache__/
 # _old_2022_企画資料: 社内企画資料
 01_migration/
 _old_2022_企画資料/
+
+# 認証情報は絶対にコミットしない（このリポジトリはGitHub public）
+# サービスアカウントの鍵は ~/.adp-analytics/service-account.json に置く
+*service-account*.json
+*credentials*.json
+*.pem
+*.key
+_reports/
