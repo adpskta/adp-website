@@ -360,9 +360,28 @@ for old_key, (slug, title, cat) in PROJECTS.items():
         f'<a class="card" data-cat="{cat}" href="{slug}.html"><img src="../assets/img/{slug}/{thumb}" alt="{html.escape(title)}" loading="lazy">'
         f'<span class="cat-label">{CAT_LABELS[cat]}</span><span class="title-label">{html.escape(title)}</span></a>'))
 
-# --- Work一覧（全件1グリッド＋カテゴリフィルタ。竣工の新しい順）---
-work_cards.sort(key=lambda x: COMPLETION.get(x[0], '0000'), reverse=True)
-work_cards = [card_html for _, card_html in work_cards]
+# --- Work一覧（全件1グリッド＋カテゴリフィルタ）---
+# 並び順: WORK_ORDER に書いた事例を先頭に、その後は竣工の新しい順。
+# 竣工順だけだと本文が未完成の新しい事例が最上位に来てしまうため、
+# 「狙う仕事に近く、本文と写真が揃っている事例」を意図的に前に出す（2026-09-04変更）。
+WORK_ORDER = [
+ 'renovation-of-new-wild',  # 住宅リノベ・設計施工・本文＋SUUMO記事。狙いの中心
+ 'tani-house',              # 戸建て新築・本文充実
+ 'bus-stop-nagaya',         # 最新（2025-12）・長屋新築・写真24枚
+ 'kitakamakura',            # 設計施工・神奈川・※本文待ち
+ 'sugary-hankyu',           # 最新の店舗・本文あり
+ 'renovation-for-green',    # 団地リノベ・設計施工
+]
+_rank = {slug: i for i, slug in enumerate(WORK_ORDER)}
+work_cards.sort(key=lambda x: (
+    _rank.get(x[0], len(WORK_ORDER)),           # 指定順が先
+    '' if x[0] in _rank else COMPLETION.get(x[0], '0000')  # 残りは竣工の新しい順
+), reverse=False)
+# 指定外は竣工の降順にしたいので、指定外だけ別途並べ替える
+_fixed = [c for c in work_cards if c[0] in _rank]
+_rest  = sorted([c for c in work_cards if c[0] not in _rank],
+                key=lambda x: COMPLETION.get(x[0], '0000'), reverse=True)
+work_cards = [html_ for _, html_ in (_fixed + _rest)]
 FILTERS = [('all', 'すべて')] + list(CAT_LABELS.items())
 filter_btns = ''.join(
     f'<button class="filter-btn{" active" if key == "all" else ""}" data-filter="{key}">{label}</button>'
