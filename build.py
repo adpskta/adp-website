@@ -119,6 +119,7 @@ COMPLETION = {
 
 # Work一覧・Selected Works・OGPのサムネイル指定（省略時は各事例の最初の画像）
 THUMBNAILS = {
+ 'kuppography-okinawa': '06_KGO2021_9.jpg',
  'renovation-of-new-wild': '04_adp_nezu_takuyaseki_4362_web_sRGB.jpg',
  'kuppography-komazawa': '03_02_interior_ume.jpg',
 }
