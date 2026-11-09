@@ -480,7 +480,6 @@ about_body = f'''<h1>About</h1>
 <li>高橋 万里江</li>
 <li>安部 くる実</li>
 <li>近森 麦人</li>
-<li>田部 堅大</li>
 </ul>
 <h2>事務所概要</h2>
 <table class="office">
