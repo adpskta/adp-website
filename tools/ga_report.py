@@ -17,7 +17,8 @@ from datetime import date, timedelta
 warnings.filterwarnings('ignore')  # Python 3.9のEOL警告を抑制
 
 CRED = os.path.expanduser('~/.adp-analytics/service-account.json')
-GA4_PROPERTY_ID = os.environ.get('ADP_GA4_PROPERTY_ID', '')   # 数字のみ（例 123456789）
+REPORT_SA = 'adp-report@adp-analytics-507602.iam.gserviceaccount.com'   # 読み取り専用のレポート用アカウント
+GA4_PROPERTY_ID = os.environ.get('ADP_GA4_PROPERTY_ID', '549049699')   # GA4の「プロパティID」（数字）
 SC_SITE = 'sc-domain:adp-ad.jp'
 
 
@@ -27,10 +28,19 @@ def fail(msg):
 
 
 def load_creds(scopes):
-    if not os.path.exists(CRED):
-        fail(f'認証情報が見つかりません: {CRED}')
-    from google.oauth2 import service_account
-    return service_account.Credentials.from_service_account_file(CRED, scopes=scopes)
+    # 鍵ファイルがあればそれを使う。無ければ info@ のログイン（gcloud auth application-default login）
+    # からレポート用アカウントを代理利用する（Workspaceの制限で鍵ファイルが作れないため）
+    if os.path.exists(CRED):
+        from google.oauth2 import service_account
+        return service_account.Credentials.from_service_account_file(CRED, scopes=scopes)
+    import google.auth
+    from google.auth import impersonated_credentials
+    try:
+        source, _ = google.auth.default(scopes=['https://www.googleapis.com/auth/cloud-platform'])
+    except Exception as e:
+        fail(f'ログイン情報が見つかりません（gcloud auth application-default login が必要）: {e}')
+    return impersonated_credentials.Credentials(
+        source_credentials=source, target_principal=REPORT_SA, target_scopes=scopes)
 
 
 def ga4_report(days):
